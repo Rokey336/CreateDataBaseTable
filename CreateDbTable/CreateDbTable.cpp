@@ -15,7 +15,7 @@ int main()
 
 	if(!DB_SqlConnect(DB_ODBC_DSN, DB_USERNAME, DB_PASSWORD))
 	{
-		printf("连接数据库失败\n");
+		printf("Failed to connect to the database\n");
 		Sleep(5000);
 		return 0;
 	}
@@ -23,39 +23,39 @@ int main()
 	/*
 	if(!DB_SqlCreateDbAllocInfos(200) && !DB_SqlCreateDbClientInfos(200) && !DB_SqlCreateDbLoginInfos(200)) 
 	{
-		printf("创建多表失败\n");
+		printf("Failed to create multiple tables\n");
 	}	
 	else
 	{
-		printf("创建多表完成\n");
+		printf("Create multiple tables complete\n");
 	}
 
 	
 	if(!DB_SqlDeleteTableDbAllocInfo(200) && !DB_SqlDeleteTableDbAllocInfo(200) && !DB_SqlDeleteTableDbAllocInfo(200)) 
 	{
-		printf("删除多表失败\n");
+		printf("Failed to delete multiple tables\n");
 	}
 	else
 	{
-		printf("删除多表完成\n");
+		printf("Deleting multiple tables completed\n");
 	}
 	*/
 	time(&Time); 
 	TimeInfo = localtime(&Time);
-	printf(" # 开始时间:%2d-%02d-%02d %02d:%02d:%02d\n",1900 + TimeInfo->tm_year,1 + TimeInfo->tm_mon,TimeInfo->tm_mday,TimeInfo->tm_hour,TimeInfo->tm_min,TimeInfo->tm_sec);
+	printf(" # Start Time:%2d-%02d-%02d %02d:%02d:%02d\n",1900 + TimeInfo->tm_year,1 + TimeInfo->tm_mon,TimeInfo->tm_mday,TimeInfo->tm_hour,TimeInfo->tm_min,TimeInfo->tm_sec);
 
 	if(DB_SqlInsertDbClientInfo(120000000))
 	{
-		printf("插入记录成功!\n");
+		printf("Insert record successfully!\n");
 	}
 	else
 	{
-		printf("插入记录失败!\n");
+		printf("Failed to insert record!\n");
 	}
 
 	time(&Time); 
 	TimeInfo = localtime(&Time);
-	printf(" # 结束时间:%2d-%02d-%02d %02d:%02d:%02d\n",1900 + TimeInfo->tm_year,1 + TimeInfo->tm_mon,TimeInfo->tm_mday,TimeInfo->tm_hour,TimeInfo->tm_min,TimeInfo->tm_sec);
+	printf(" # End Time:%2d-%02d-%02d %02d:%02d:%02d\n",1900 + TimeInfo->tm_year,1 + TimeInfo->tm_mon,TimeInfo->tm_mday,TimeInfo->tm_hour,TimeInfo->tm_min,TimeInfo->tm_sec);
 
 	Sleep(100000);
 	return 0;
