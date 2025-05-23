@@ -1,15 +1,9 @@
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlConnect
+* Name:	DB_SqlConnect
 *
-* 特性描述:	数据库连接
-*
-* 参数列表:	PCHAR  [IN]	 DataBase
-*           PCHAR  [IN]	 UserName
-*           PCHAR  [IN]	 PassWord
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlConnect(PCHAR DataBase,PCHAR UserName,PCHAR PassWord)
@@ -33,13 +27,9 @@ BOOL DB_SqlConnect(PCHAR DataBase,PCHAR UserName,PCHAR PassWord)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlDisConnect
+* Name:	DB_SqlDisConnect
 *
-* 特性描述:	数据库断开连接
-*
-* 参数列表:	VOID
-*
-* 返回结果:	VOID
+* Return:	VOID
 *
 ********************************************************************************/
 VOID DB_SqlDisConnect(VOID)
@@ -59,18 +49,14 @@ VOID DB_SqlDisConnect(VOID)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlReConnect
+* Name:	DB_SqlReConnect
 *
-* 特性描述:	数据库重新连接
-*
-* 参数列表:	VOID
-*
-* 返回结果:	VOID
+* Return:	VOID
 *
 ********************************************************************************/
 VOID DB_SqlReConnect(VOID)
 {
-    printf("\n # 数据库重连 ...");
+    printf("\n # Connect Database ...");
 
 	do
 	{
@@ -78,19 +64,14 @@ VOID DB_SqlReConnect(VOID)
 
 	}while(!DB_SqlConnect(DB_ODBC_DSN,DB_USERNAME,DB_PASSWORD));
 
-	printf(" # 数据库重连成功 ! ");
+	printf(" # Database reconnection successful ! ");
 }
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlInsert
+* Name:	DB_SqlInsert
 *
-* 特性描述:	数据库插入
-*
-* 参数列表:	PCHAR  [IN]  TableName		
-*           PCHAR  [IN]	 StrValues		
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlInsert(PCHAR TableName,PCHAR StrValues)
@@ -127,14 +108,9 @@ BOOL DB_SqlInsert(PCHAR TableName,PCHAR StrValues)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlUpdate
+* Name:	DB_SqlUpdate
 *
-* 特性描述:	更新数据库
-*
-* 参数列表:	PCHAR  [IN]  TableName			
-*           PCHAR  [IN]	 Condition		
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlUpdate(PCHAR TableName,PCHAR Condition)
@@ -170,14 +146,9 @@ BOOL DB_SqlUpdate(PCHAR TableName,PCHAR Condition)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlDelete
+* Name:	DB_SqlDelete
 *
-* 特性描述:	数据库删除
-*
-* 参数列表:	PCHAR  [IN]  TableName		
-*           PCHAR  [IN]	 Condition	
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlDelete(PCHAR TableName,PCHAR Condition)
@@ -213,14 +184,9 @@ BOOL DB_SqlDelete(PCHAR TableName,PCHAR Condition)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlTableExec
+* Name:	DB_SqlTableExec
 *
-* 特性描述:	数据执行
-*
-* 参数列表:	
-*			PCHAR  [IN]  TablePar
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlTableExec(PCHAR TableStr)
@@ -253,15 +219,9 @@ BOOL DB_SqlTableExec(PCHAR TableStr)
 
 /*================================================================================
 *
-* 函数名称:	DB_MakeInsertDbClientInfoStmt
+* Name:	DB_MakeInsertDbClientInfoStmt
 *
-* 特性描述:	组织 DbClientTotal 插入语句
-*
-* 参数列表:	
-*			PCHAR			  [IN]  SqlStr
-*           PDB_CLIENT_INFO   [IN]  ClientInfo
-*
-* 返回结果:	VOID
+* Return:	VOID
 *
 ================================================================================*/
 VOID DB_MakeInsertDbClientInfoStmt(PCHAR SqlStr, PDB_CLIENT_INFO ClientInfo)
@@ -305,16 +265,9 @@ VOID DB_MakeInsertDbClientInfoStmt(PCHAR SqlStr, PDB_CLIENT_INFO ClientInfo)
 
 /*================================================================================
 *
-* 函数名称:	DB_MakeCreateDbClientInfoStmt
+* Name:	DB_MakeCreateDbClientInfoStmt
 *
-* 特性描述:	组织 DbClientInfo 创建表语句
-*
-* 参数列表:	
-*			PCHAR   [IN]  TablePartStr
-*           ULONG   [IN]  TablePartNum
-*			PCHAR   [IN]  SqlStr
-*
-* 返回结果:	VOID
+* Return:	VOID
 *
 ================================================================================*/
 VOID DB_MakeCreateDbClientInfoStmt(PCHAR TablePartStr, ULONG TablePartNum, PCHAR SqlStr)
@@ -335,16 +288,9 @@ VOID DB_MakeCreateDbClientInfoStmt(PCHAR TablePartStr, ULONG TablePartNum, PCHAR
 
 /*================================================================================
 *
-* 函数名称:	DB_MakeCreateDbAllocInfoStmt
+* Name:	DB_MakeCreateDbAllocInfoStmt
 *
-* 特性描述:	创建DbAllocInfo信息表
-*
-* 参数列表:	
-*			PCHAR   [IN]  TablePartStr
-*           ULONG   [IN]  TablePartNum
-*			PCHAR   [IN]  SqlStr
-*
-* 返回结果:	VOID
+* Return:	VOID
 *
 ================================================================================*/
 VOID DB_MakeCreateDbAllocInfoStmt(PCHAR TablePartStr, ULONG TablePartNum, PCHAR SqlStr)
@@ -365,16 +311,9 @@ VOID DB_MakeCreateDbAllocInfoStmt(PCHAR TablePartStr, ULONG TablePartNum, PCHAR 
 
 /*================================================================================
 *
-* 函数名称:	DB_MakeDeleteTableStmt
+* Name:	DB_MakeDeleteTableStmt
 *
-* 特性描述:	组织 CreateTable 插入语句
-*
-* 参数列表:	
-*			PCHAR   [IN]  TablePartStr
-*           ULONG   [IN]  TablePartNum
-*			PCHAR   [IN]  SqlStr
-*
-* 返回结果:	VOID
+* Return:	VOID
 *
 ================================================================================*/
 VOID DB_MakeDeleteTableStmt(PCHAR TablePartStr, ULONG TablePartNum, PCHAR SqlStr)
@@ -388,14 +327,9 @@ VOID DB_MakeDeleteTableStmt(PCHAR TablePartStr, ULONG TablePartNum, PCHAR SqlStr
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlCreateDbAllocInfos
+* Name:	DB_SqlCreateDbAllocInfos
 *
-* 特性描述:	任务分配表创建
-*
-* 参数列表:	
-*			VOID
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlCreateDbAllocInfos(ULONG TableNum)
@@ -419,14 +353,9 @@ BOOL DB_SqlCreateDbAllocInfos(ULONG TableNum)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlCreateDbClientInfos
+* Name:	DB_SqlCreateDbClientInfos
 *
-* 特性描述:	任务分配表创建
-*
-* 参数列表:	
-*			VOID
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlCreateDbClientInfos(ULONG TableNum)
@@ -451,14 +380,9 @@ BOOL DB_SqlCreateDbClientInfos(ULONG TableNum)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlCreateDbLoginInfos
+* Name:	DB_SqlCreateDbLoginInfos
 *
-* 特性描述:	登录表创建
-*
-* 参数列表:	
-*			VOID
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlCreateDbLoginInfos(ULONG TableNum)
@@ -483,14 +407,9 @@ BOOL DB_SqlCreateDbLoginInfos(ULONG TableNum)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlDeleteTableDbAllocInfo
+* Name:	DB_SqlDeleteTableDbAllocInfo
 *
-* 特性描述:	数据表删除
-*
-* 参数列表:	
-*			VOID
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlDeleteTableDbAllocInfo(ULONG TableNum)
@@ -514,14 +433,9 @@ BOOL DB_SqlDeleteTableDbAllocInfo(ULONG TableNum)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlDeleteTableDbClientInfo
+* Name:	DB_SqlDeleteTableDbClientInfo
 *
-* 特性描述:	数据表删除
-*
-* 参数列表:	
-*			VOID
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlDeleteTableDbClientInfo(ULONG TableNum)
@@ -545,14 +459,9 @@ BOOL DB_SqlDeleteTableDbClientInfo(ULONG TableNum)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlDeleteTableDbLoginInfo
+* Name:	DB_SqlDeleteTableDbLoginInfo
 *
-* 特性描述:	数据表删除
-*
-* 参数列表:	
-*			VOID
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlDeleteTableDbLoginInfo(ULONG TableNum)
@@ -577,14 +486,9 @@ BOOL DB_SqlDeleteTableDbLoginInfo(ULONG TableNum)
 
 /********************************************************************************
 *
-* 函数名称:	DB_SqlInsertDbClientInfo
+* Name:	DB_SqlInsertDbClientInfo
 *
-* 特性描述:	登录表创建
-*
-* 参数列表:	
-*			ULONG	[IN]	RecordNum
-*
-* 返回结果:	BOOL
+* Return:	BOOL
 *
 ********************************************************************************/
 BOOL DB_SqlInsertDbClientInfo(ULONG RecordNum)
@@ -624,7 +528,7 @@ BOOL DB_SqlInsertDbClientInfo(ULONG RecordNum)
 		{
 			time(&Time); 
 			TimeInfo = localtime(&Time);
-			printf(" #第%dW条数据插入成功, 时间:%2d-%02d-%02d %02d:%02d:%02d\n",Index / 10000, 1900 + TimeInfo->tm_year,1 + TimeInfo->tm_mon,TimeInfo->tm_mday,TimeInfo->tm_hour,TimeInfo->tm_min,TimeInfo->tm_sec);
+			printf(" #%dW, Time:%2d-%02d-%02d %02d:%02d:%02d\n",Index / 10000, 1900 + TimeInfo->tm_year,1 + TimeInfo->tm_mon,TimeInfo->tm_mday,TimeInfo->tm_hour,TimeInfo->tm_min,TimeInfo->tm_sec);
 		}
 	}
 
